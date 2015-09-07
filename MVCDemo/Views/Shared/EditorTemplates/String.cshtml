@@ -1,0 +1,10 @@
+﻿@model string
+@if (ViewData.ModelMetadata.AdditionalValues.ContainsKey("MaxSize"))
+{
+    @Html.TextBox("", Model == null ? "" : Model.ToString(), new {@class = "form-control input-sm" , maxlength = ViewData.ModelMetadata.AdditionalValues["MaxSize"], })
+}
+else
+{
+    @Html.TextBox("", Model == null ? "" : Model.ToString(), new {@class = "form-control input-sm" })
+}
+

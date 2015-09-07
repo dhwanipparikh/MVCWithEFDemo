@@ -1,0 +1,39 @@
+﻿@model MVCDemo.Models.Demographic
+<br />
+<h4>Demographic Detail</h4>
+<hr />
+<div class="form-group">
+    <div class="col-sm-2 display-label">
+        @Html.DisplayNameFor(m => m.Member.FirstName)
+    </div>
+    <div class="col-sm-4">
+        @Html.DisplayFor(m => m.Member.FirstName)
+    </div>
+    <div class="col-sm-2 display-label">
+        @Html.DisplayNameFor(m => m.Member.LastName)
+    </div>
+    <div class="col-sm-4">
+        @Html.DisplayFor(m => m.Member.LastName)
+    </div>
+</div>
+@Html.Partial("_ContactDetail", Model.HomeContact)
+
+
+
+<div class="form-group">
+    <p>
+        <div class="col-sm-12">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Member.MemberID }, new { @class = "btn btn-sm btn-primary" })
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default btn-sm" })
+        </div>
+    </p>
+</div>
+
+
+
+
+
+
+
+
+

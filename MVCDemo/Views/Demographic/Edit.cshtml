@@ -1,0 +1,22 @@
+﻿@model MVCDemo.Models.Demographic
+
+@{
+    ViewBag.Title = "Edit";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.Partial("_Demographic", Model)
+        @Html.HiddenFor(m => m.Member.MemberID)
+        @Html.HiddenFor(m => m.Member.CreatedBy)
+        @Html.HiddenFor(m => m.Member.CreateDateTime)
+        @Html.HiddenFor(m => m.Member.RowVersion)
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="button" id="saveButton" class="btn btn-primary btn-sm" data-loading-text="<span class='glyphicon glyphicon-refresh spinning'></span> Saving..."> Save</button>
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default btn-sm" })
+            </div>
+        </div>
+    </div>
+}
