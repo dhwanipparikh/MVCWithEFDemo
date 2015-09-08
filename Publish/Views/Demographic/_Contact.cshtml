@@ -1,0 +1,74 @@
+﻿@model MVCDemo.Domain.Contact
+
+@Html.HiddenFor(m => m.CreatedBy)
+@Html.HiddenFor(m => m.CreateDateTime)
+@Html.HiddenFor(m => m.UpdatedBy)
+@Html.HiddenFor(m => m.UpdateDateTime)
+@Html.HiddenFor(m => m.MemberID)
+@Html.HiddenFor(m => m.ContactID)
+@Html.HiddenFor(m => m.Country)
+@Html.HiddenFor(m => m.ContactType)
+@Html.HiddenFor(m => m.RowVersion)
+
+
+
+<div class="form-group">
+    @Html.LabelFor(m => m.AddressLine1, htmlAttributes: new { @class = "control-label col-sm-2" })
+    <div class="col-sm-4">
+        @Html.EditorFor(m => m.AddressLine1)
+        @Html.ValidationMessageFor(m => m.AddressLine1, "", new { @class = "text-danger" })
+    </div>
+
+    @Html.LabelFor(m => m.AddressLine2, htmlAttributes: new { @class = "control-label col-sm-2" })
+    <div class="col-sm-4">
+        @Html.EditorFor(m => m.AddressLine2)
+        @Html.ValidationMessageFor(m => m.AddressLine2, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.City, htmlAttributes: new { @class = "control-label col-sm-2" })
+    <div class="col-sm-4">
+        @Html.EditorFor(m => m.City)
+        @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
+    </div>
+
+    @Html.LabelFor(m => m.StateID, htmlAttributes: new { @class = "control-label col-sm-2" })
+    <div class="col-sm-4">
+        @Html.DropDownListFor(m => m.StateID, (List<SelectListItem>)ViewData["StateList"], "---Select---", new { @class = "form-control input-sm" })
+        @Html.ValidationMessageFor(m => m.StateID, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ZipCode, htmlAttributes: new { @class = "control-label col-sm-2" })
+    <div class="col-sm-4">
+        @Html.EditorFor(m => m.ZipCode)
+        @Html.ValidationMessageFor(m => m.ZipCode, "", new { @class = "text-danger" })
+    </div>
+
+
+
+
+    @Html.LabelFor(m => m.Email, htmlAttributes: new { @class = "control-label col-sm-2" })
+    <div class="col-sm-4">
+        @Html.EditorFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#@Html.IdFor(m => m.ZipCode)').focusout(function () {
+            var zip = $('#@Html.IdFor(m => m.ZipCode)').val();
+            if (zip.length == 9) {
+
+                var formattedZip = zip.substring(0, 5) + "-" + zip.substring(5, 9);
+
+                $('#@Html.IdFor(m => m.ZipCode)').val(formattedZip);
+            }
+        })
+    });
+</script>

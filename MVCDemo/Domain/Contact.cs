@@ -65,6 +65,9 @@ namespace MVCDemo.Domain
         [RegularExpression(@"^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$",ErrorMessage="Invalid Email")]
         public string Email { get; set; }
 
+        [Required(ErrorMessage = "Contact Type is Required.")]
+        [Column(TypeName = "varchar")]
+        [StringLength(10)]
         public string ContactType { get; set; }
 
         [ForeignKey("StateID")]

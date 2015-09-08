@@ -1,0 +1,50 @@
+﻿@model MVCDemo.Domain.Contact
+
+
+<div class="form-group">
+
+    <div class="col-sm-2 display-label">
+        @Html.DisplayNameFor(m => m.AddressLine1)
+    </div>
+    <div class="col-sm-4">
+        @Html.DisplayFor(m => m.AddressLine1)
+    </div>
+    <div class="col-sm-2 display-label">
+        @Html.DisplayNameFor(m => m.AddressLine2)
+    </div>
+    <div class="col-sm-4">
+        @Html.DisplayFor(m => m.AddressLine2)
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-2 display-label">
+        @Html.DisplayNameFor(m => m.City)
+    </div>
+    <div class="col-sm-4">
+        @Html.DisplayFor(m => m.City)
+    </div>
+    <div class="col-sm-2 display-label">
+        @Html.DisplayNameFor(m => m.StateID)
+    </div>
+    <div class="col-sm-4">
+        @Html.DisplayFor(m => m.State.StateName)
+    </div>
+</div>
+
+
+<div class="form-group">
+    <div class="col-sm-2 display-label">
+        @Html.DisplayNameFor(m => m.ZipCode)
+    </div>
+    <div class="col-sm-4">
+        @Html.DisplayFor(m => m.ZipCode)
+    </div>
+    <div class="col-sm-2 display-label">
+        @Html.DisplayNameFor(m => m.Email)
+    </div>
+    <div class="col-sm-4">
+        @Html.DisplayFor(m => m.Email)
+    </div>
+</div>
+
