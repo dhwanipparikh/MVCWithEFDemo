@@ -17,11 +17,9 @@ namespace MVCDemo.Domain
 
         [Required]
         [Column(TypeName = "varchar")]
-        [StringLength(25)]        
+        [StringLength(35)]        
         public string StateName { get; set; }
-        //changes to mvc branch master again
-        //changes in test branch by master
-        //more changes to master branch
+        
 
     }
 
