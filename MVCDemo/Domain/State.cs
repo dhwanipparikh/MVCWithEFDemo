@@ -20,6 +20,7 @@ namespace MVCDemo.Domain
         [StringLength(25)]        
         public string StateName { get; set; }
         //changes to mvc branch master
+        //changes in test branch
     }
 
 }
