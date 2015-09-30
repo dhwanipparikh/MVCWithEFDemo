@@ -1,0 +1,66 @@
+﻿@model MVCDemo.Models.Demographic
+<br/>
+<h4>Demographic</h4>
+<hr />
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Member.FirstName, htmlAttributes: new { @class = "control-label col-sm-2 " })
+        <div class="col-sm-4">
+            @Html.EditorFor(m => m.Member.FirstName)
+            @Html.ValidationMessageFor(m => m.Member.FirstName, "", new { @class = "text-danger" })
+        </div>
+
+        @Html.LabelFor(m => m.Member.LastName, htmlAttributes: new { @class = "control-label col-sm-2" })
+        <div class="col-sm-4">
+            @Html.EditorFor(m => m.Member.LastName)
+            @Html.ValidationMessageFor(m => m.Member.LastName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+@{
+    ViewDataDictionary vddContact = new ViewDataDictionary();
+    vddContact.Add("StateList", Model.StateList);
+    vddContact.TemplateInfo = new System.Web.Mvc.TemplateInfo { HtmlFieldPrefix = "HomeContact" };
+}
+
+@Html.Partial("_Contact", Model.HomeContact, vddContact)
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var pageDirty = false;
+        $('#menuDemographic').addClass('active')
+        $('#saveButton').on('click', function () {
+            var $this = $(this);
+            var form = $this.parents('form:first');
+            if (form.valid()) {
+                $this.button('loading');
+                pageDirty = false;
+                form.submit();
+
+            }
+        });
+
+        $(document).on('change', 'input', function () {
+            pageDirty = true;
+            $(this).val($.trim(this.value));
+        });
+        $(document).on('change', 'select', function () {
+            pageDirty = true;
+        });
+        window.onbeforeunload = function () {
+            if (pageDirty) {
+                return 'WARNING!!! \n\nThere is unsaved data. Leaving this page will cause all unsaved data to be lost.';
+            }
+        }
+    });
+
+
+</script>
+
+
+
+
+

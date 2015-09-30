@@ -19,6 +19,7 @@ namespace MVCDemo.Domain
         [Column(TypeName = "varchar")]
         [StringLength(25)]        
         public string StateName { get; set; }
-
+        //changes to mvc branch
     }
+
 }
