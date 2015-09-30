@@ -17,7 +17,7 @@ namespace MVCDemo.Domain
 
         [Required]
         [Column(TypeName = "varchar")]
-        [StringLength(45)]        
+        [StringLength(55)]        
         public string StateName { get; set; }
         
 
